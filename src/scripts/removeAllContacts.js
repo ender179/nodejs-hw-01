@@ -1,7 +1,18 @@
-const writeContacts = require('../utils/writeContacts');
+import fs from 'fs';  
+import path from 'path';  
 
-function removeAllContacts() {
-  writeContacts([]);
-}
+const dbPath = path.join(__dirname, '../db/db.json');  
 
-module.exports = removeAllContacts;
+const removeAllContacts = () => {  
+    const emptyContacts = { contacts: [] };  
+
+    fs.writeFile(dbPath, JSON.stringify(emptyContacts, null, 2), (err) => {  
+        if (err) {  
+            console.error('Не вдалося видалити контакти:', err);  
+            return;  
+        }  
+        console.log('Усі контакти були успішно видалені.');  
+    });  
+};  
+
+removeAllContacts();

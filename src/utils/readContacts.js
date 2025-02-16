@@ -1,9 +1,9 @@
-const fs = require('fs');
-const PATH_DB = require('../constants/contacts').PATH_DB;
+const fs = require('fs');  
+const path = require('path');  
 
-function readContacts() {
-  const data = fs.readFileSync(PATH_DB, 'utf-8');
-  return JSON.parse(data);
-}
+function readContacts() {  
+  const data = fs.readFileSync(path.join(__dirname, '../db/db.json'), 'utf-8');  
+  return JSON.parse(data);  
+}  
 
 module.exports = readContacts;
