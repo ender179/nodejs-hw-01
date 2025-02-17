@@ -1,9 +1,14 @@
-const fs = require('fs');  
-const path = require('path');  
+import fs from 'fs';  
+import { PATH_DB } from '../constants/contacts.js';  
 
 function readContacts() {  
-  const data = fs.readFileSync(path.join(__dirname, '../db/db.json'), 'utf-8');  
-  return JSON.parse(data);  
+    try {  
+        const data = fs.readFileSync(PATH_DB, 'utf-8');  
+        return JSON.parse(data);  
+    } catch (error) {  
+        console.error('Error reading contacts:', error);  
+        return []; 
+    }  
 }  
 
-module.exports = readContacts;
+export default readContacts;

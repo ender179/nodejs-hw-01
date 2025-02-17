@@ -1,8 +1,12 @@
-const fs = require('fs');
-const PATH_DB = require('../constants/contacts').PATH_DB;
+import fs from 'fs';  
+import { PATH_DB } from '../constants/contacts.js';  
 
-function writeContacts(data) {
-  fs.writeFileSync(PATH_DB, JSON.stringify(data, null, 2));
-}
+function writeContacts(contacts) {  
+    try {  
+        fs.writeFileSync(PATH_DB, JSON.stringify(contacts, null, 2));  
+    } catch (error) {  
+        console.error('Error writing contacts:', error);  
+    }  
+}  
 
-module.exports = writeContacts;
+export default writeContacts;

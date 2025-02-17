@@ -1,8 +1,8 @@
-const readContacts = require('../utils/readContacts');
+import readContacts from '../utils/readContacts.js';  
 
-function countContacts() {
-  const contacts = readContacts();
-  return contacts.length;
-}
+function countContacts() {  
+    const contacts = readContacts();  
+    console.log('Total contacts:', contacts.length);  
+}  
 
-module.exports = countContacts;
+countContacts();
