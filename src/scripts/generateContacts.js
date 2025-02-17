@@ -1,28 +1,25 @@
-import { createFakeContact } from '../utils/createFakeContact.js';  
-import readContacts from '../utils/readContacts.js';  
-import writeContacts from '../utils/writeContacts.js';  
-import fs from 'fs';  
+const fs = require('fs');  
+const path = require('path');  
 
-function generateContacts(count) {  
-    try {  
-        const contacts = readContacts();  
+const dbPath = path.join(__dirname, '../db/db.json');  
+const { generateFakeContact } = require('./utils');  
 
-        for (let i = 0; i < count; i++) {  
-            contacts.push(createFakeContact());  
-        }  
-
-        writeContacts(contacts);  
-        console.log(`${count} контактів успішно згенеровано та додано!`);  
-    } catch (error) {  
-        console.error(`Сталася помилка: ${error.message}`);  
+function generateContacts() {  
+    const newContacts = [];  
+    for (let i = 0; i < 5; i++) {  
+        newContacts.push(generateFakeContact());  
     }  
+
+    fs.readFile(dbPath, 'utf-8', (err, data) => {  
+        if (err) throw err;  
+        const jsonData = JSON.parse(data);  
+        jsonData.push(...newContacts);  
+
+        fs.writeFile(dbPath, JSON.stringify(jsonData, null, 2), (err) => {  
+            if (err) throw err;  
+            console.log('5 нових контактів додано.');  
+        });  
+    });  
 }  
 
-const count = parseInt(process.argv[2], 10);  
-
-if (isNaN(count) || count <= 0) {  
-    console.error("Будь ласка, введіть коректну кількість контактів для генерації.");  
-    process.exit(1);  
-}  
-
-generateContacts(count);
+generateContacts();
