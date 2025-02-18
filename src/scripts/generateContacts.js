@@ -1,25 +1,12 @@
-const fs = require('fs');  
-const path = require('path');  
-
-const dbPath = path.join(__dirname, '../db/db.json');  
-const { generateFakeContact } = require('./utils');  
+import createFakeContact from '../utils/createFakeContact';  
+import writeContacts from '../utils/writeContacts';  
+import readContacts from '../utils/readContacts';  
 
 function generateContacts() {  
-    const newContacts = [];  
-    for (let i = 0; i < 5; i++) {  
-        newContacts.push(generateFakeContact());  
-    }  
-
-    fs.readFile(dbPath, 'utf-8', (err, data) => {  
-        if (err) throw err;  
-        const jsonData = JSON.parse(data);  
-        jsonData.push(...newContacts);  
-
-        fs.writeFile(dbPath, JSON.stringify(jsonData, null, 2), (err) => {  
-            if (err) throw err;  
-            console.log('5 нових контактів додано.');  
-        });  
-    });  
+    const currentContacts = readContacts();  
+    const newContacts = Array.from({ length: 5 }, () => createFakeContact());  
+    writeContacts([...currentContacts, ...newContacts]);  
+    console.log('5 нових контактів додано.');  
 }  
 
 generateContacts();

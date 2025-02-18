@@ -1,13 +1,13 @@
-const { faker } = require('@faker-js/faker');
+import { string, person, phone as _phone, internet } from '@faker-js/faker';  
 
-function createFakeContact() {
-  return {
-    id: faker.string.uuid(),
-    name: faker.person.fullName(),
-    phone: faker.phone.number(),
-    email: faker.internet.email(),
-    job: faker.person.jobTitle(),
-  };
-}
+function createFakeContact() {  
+    return {  
+        id: string.uuid(),  
+        name: person.fullName(),  
+        phone: _phone.number(),  
+        email: internet.email(),  
+        job: person.jobTitle(),  
+    };  
+}  
 
-module.exports = createFakeContact;
+export default createFakeContact;

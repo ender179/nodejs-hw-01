@@ -1,9 +1,10 @@
-import fs from 'fs';  
-import { PATH_DB } from '../constants/contacts.js';  
+import { writeFileSync } from 'fs';  
+import path from 'path';  
+import { PATH_DB } from '../constants.js';  
 
 function writeContacts(contacts) {  
     try {  
-        fs.writeFileSync(PATH_DB, JSON.stringify(contacts, null, 2));  
+        writeFileSync(PATH_DB, JSON.stringify(contacts, null, 2));  
     } catch (error) {  
         console.error('Error writing contacts:', error);  
     }  
