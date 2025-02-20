@@ -1,12 +1,12 @@
-import readContacts from '../utils/readContacts.js';  
-import writeContacts from '../utils/writeContacts.js';  
+const { readContacts } = require('../utils/readContacts');  
+const { writeContacts } = require('../utils/writeContacts');  
 
-function removeLastContact() {  
+const removeLastContact = () => {  
     const contacts = readContacts();  
     if (contacts.length > 0) {  
-        contacts.pop(); 
+        contacts.pop();  
     }  
     writeContacts(contacts);  
-}  
+};  
 
 removeLastContact();

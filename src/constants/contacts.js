@@ -1,5 +1,3 @@
-const PATH_DB = './src/db/db.json'; 
+const PATH_DB = './src/db/db.json';  
 
-export default {  
-    PATH_DB,  
-};
+module.exports = { PATH_DB };

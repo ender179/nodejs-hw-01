@@ -1,8 +1,8 @@
-import readContacts from '../utils/readContacts.js';  
+const { readContacts } = require('../utils/readContacts');  
 
-function getAllContacts() {  
+const getAllContacts = () => {  
     const contacts = readContacts();  
     console.log(contacts);  
-}  
+};  
 
 getAllContacts();

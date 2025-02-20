@@ -1,7 +1,7 @@
-import writeContacts from '../utils/writeContacts.js';  
+const { writeContacts } = require('../utils/writeContacts');  
 
-function removeAllContacts() {  
-    writeContacts([]); 
-}  
+const removeAllContacts = () => {  
+    writeContacts([]);  
+};  
 
 removeAllContacts();
