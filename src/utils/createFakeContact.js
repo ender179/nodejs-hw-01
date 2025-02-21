@@ -1,21 +1,15 @@
-import { string, person, phone as _phone, internet } from '@faker-js/faker';  
+import { faker } from '@faker-js/faker';  
 
-function createFakeContact() {  
-    return {  
-        id: string.uuid(),  
-        name: person.fullName(),  
-        phone: _phone.phoneNumber(), 
-        email: internet.email(),  
-        job: person.jobTitle(),  
-    };  
-}  
+const createFakeContact = () => ({  
+    id: faker.datatype.uuid(),  
+    name: faker.name.findName(),  
+    phone: faker.phone.number(),  
+    email: faker.internet.email(),  
+    job: faker.name.jobTitle(),  
+});  
 
-function createFakeContacts(count) {  
+const createFakeContacts = (count) => {  
     return Array.from({ length: count }, () => createFakeContact());  
-}  
+};  
 
-const contacts = createFakeContacts(5);  
-console.log(contacts);  
-
-export default createFakeContact;  
-export { createFakeContacts };
+export { createFakeContact, createFakeContacts };

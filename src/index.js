@@ -1,13 +1,13 @@
-import generateContacts from './src/scripts/generateContacts';
-import addOneContact from './src/scripts/addOneContact';
-import getAllContacts from './src/scripts/getAllContacts';
-import countContacts from './src/scripts/countContacts';
-import removeAllContacts from './src/scripts/removeAllContacts';
-import removeLastContact from './src/scripts/removeLastContact';
+import generateContacts from './scripts/generateContacts';  
+import addOneContact from './scripts/addOneContact';  
+import countContacts from './scripts/countContacts';  
+import removeAllContacts from './scripts/removeAllContacts';  
+import removeLastContact from './scripts/removeLastContact';  
+import getAllContacts from './scripts/getAllContacts';  
 
-generateContacts(5); 
-addOneContact(); 
-console.log(getAllContacts()); 
-console.log(countContacts()); 
-removeLastContact(); 
-removeAllContacts(); 
+generateContacts(5); // Генерує 5 контактів  
+addOneContact();     // Додає один контакт  
+getAllContacts();    // Виводить всі контакти  
+countContacts();     // Виводить кількість контактів  
+removeLastContact(); // Видаляє останній контакт  
+removeAllContacts(); // Видаляє всі контакти

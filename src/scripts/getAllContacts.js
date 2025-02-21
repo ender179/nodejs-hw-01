@@ -5,4 +5,4 @@ const getAllContacts = () => {
     console.log(contacts);  
 };  
 
-getAllContacts();
+export default getAllContacts;

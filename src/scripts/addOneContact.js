@@ -1,6 +1,5 @@
 import { createFakeContact } from '../utils/createFakeContact';  
-import { readContacts } from '../utils/readContacts';  
-import { writeContacts } from '../utils/writeContacts';  
+import { readContacts, writeContacts } from '../utils/readContacts';  
 
 const addOneContact = () => {  
     const contacts = readContacts();  
@@ -8,4 +7,4 @@ const addOneContact = () => {
     writeContacts(contacts);  
 };  
 
-addOneContact();
+export default addOneContact;

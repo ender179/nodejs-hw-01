@@ -1,17 +1,11 @@
-import readContacts from '../utils/readContacts'; 
-import writeContacts from '../utils/writeContacts'; 
+import { readContacts, writeContacts } from '../utils/readContacts';  
 
 const removeLastContact = () => {  
-    const contacts = readContacts();   
-
+    const contacts = readContacts();  
     if (contacts.length > 0) {  
-        contacts.pop();   
-        console.log("Последний контакт был удалён.");    
-    } else {  
-        console.log("Нет контактов для удаления.");    
+        contacts.pop(); 
+        writeContacts(contacts);  
     }  
-    
-    writeContacts(contacts); 
 };  
 
-removeLastContact(); 
+export default removeLastContact;

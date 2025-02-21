@@ -1,14 +1,11 @@
-import { createFakeContact } from '../utils/createFakeContact';  
-import { readContacts } from '../utils/readContacts';  
-import { writeContacts } from '../utils/writeContacts';  
+import { generateFakeContacts } from '../utils/createFakeContact';  
+import { readContacts, writeContacts } from '../utils/readContacts';  
 
-const generateContacts = (count) => {  
-    const contacts = readContacts();  
-    for (let i = 0; i < count; i++) {  
-        contacts.push(createFakeContact());  
-    }  
-    writeContacts(contacts);  
+const generateContacts = (num) => {  
+    const existingContacts = readContacts();  
+    const newContacts = generateFakeContacts(num);  
+    const updatedContacts = [...existingContacts, ...newContacts];  
+    writeContacts(updatedContacts);  
 };  
 
-const count = parseInt(process.argv[2] || 0, 10);  
-generateContacts(count);
+export default generateContacts;

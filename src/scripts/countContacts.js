@@ -5,4 +5,4 @@ const countContacts = () => {
     console.log(contacts.length);  
 };  
 
-countContacts();
+export default countContacts;

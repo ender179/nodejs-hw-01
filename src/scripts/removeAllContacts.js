@@ -1,7 +1,7 @@
-import writeContacts from '../utils/writeContacts';  
+import { writeContacts } from '../utils/readContacts';  
 
 const removeAllContacts = () => {  
-    writeContacts([]);  
+    writeContacts([]); 
 };  
 
-removeAllContacts();
+export default removeAllContacts;
