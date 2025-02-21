@@ -5,9 +5,20 @@ import removeAllContacts from './scripts/removeAllContacts';
 import removeLastContact from './scripts/removeLastContact';  
 import getAllContacts from './scripts/getAllContacts';  
 
-generateContacts(5); // Генерує 5 контактів  
-addOneContact();     // Додає один контакт  
-getAllContacts();    // Виводить всі контакти  
-countContacts();     // Виводить кількість контактів  
-removeLastContact(); // Видаляє останній контакт  
-removeAllContacts(); // Видаляє всі контакти
+// Генерує 5 контактів  
+generateContacts(5);  
+
+// Додає один контакт  
+addOneContact();  
+
+// Виводить всі контакти  
+getAllContacts();  
+
+// Виводить кількість контактів  
+countContacts();  
+
+// Вилучає останній контакт  
+removeLastContact();  
+
+// Вилучає всі контакти  
+removeAllContacts();

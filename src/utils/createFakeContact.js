@@ -1,15 +1,9 @@
-import { faker } from '@faker-js/faker';  
-
-const createFakeContact = () => ({  
-    id: faker.datatype.uuid(),  
-    name: faker.name.findName(),  
-    phone: faker.phone.number(),  
-    email: faker.internet.email(),  
-    job: faker.name.jobTitle(),  
-});  
-
-const createFakeContacts = (count) => {  
-    return Array.from({ length: count }, () => createFakeContact());  
+const createFakeContact = () => {  
+  const names = ['John', 'Jane', 'Alice', 'Bob'];  
+  return {  
+    name: names[Math.floor(Math.random() * names.length)],  
+    phone: `${Math.floor(Math.random() * 1000000000)}`,  
+  };  
 };  
 
-export { createFakeContact, createFakeContacts };
+export default createFakeContact;

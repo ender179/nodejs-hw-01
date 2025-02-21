@@ -1,8 +1,8 @@
-import { writeFileSync } from 'fs';  
-import PATH_DB from '../constants/contacts';  
+import fs from 'fs';  
+import path from 'path';  
 
 const writeContacts = (contacts) => {  
-    writeFileSync(PATH_DB, JSON.stringify(contacts, null, 2));  
+  fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(contacts, null, 2));  
 };  
 
 export default writeContacts;
