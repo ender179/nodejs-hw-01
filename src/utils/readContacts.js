@@ -1,12 +1,12 @@
-const fs = require('fs');  
-const { PATH_DB } = require('../constants/contacts');  
+import { existsSync, readFileSync } from 'fs';  
+import { PATH_DB } from '../constants/contacts';  
 
 const readContacts = () => {  
-    if (!fs.existsSync(PATH_DB)) {  
+    if (!existsSync(PATH_DB)) {  
         return [];  
     }  
-    const data = fs.readFileSync(PATH_DB);  
+    const data = readFileSync(PATH_DB);  
     return JSON.parse(data);  
 };  
 
-module.exports = { readContacts };
+export default { readContacts };

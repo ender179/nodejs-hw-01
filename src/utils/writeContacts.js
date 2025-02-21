@@ -1,8 +1,8 @@
-const fs = require('fs');  
-const { PATH_DB } = require('../constants/contacts');  
+import { writeFileSync } from 'fs';  
+import { PATH_DB } from '../constants/contacts';  
 
 const writeContacts = (contacts) => {  
-    fs.writeFileSync(PATH_DB, JSON.stringify(contacts, null, 2));  
+    writeFileSync(PATH_DB, JSON.stringify(contacts, null, 2));  
 };  
 
-module.exports = { writeContacts };
+export default { writeContacts };

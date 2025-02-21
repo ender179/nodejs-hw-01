@@ -1,9 +1,9 @@
-const generateContacts = require('./src/scripts/generateContacts');
-const addOneContact = require('./src/scripts/addOneContact');
-const getAllContacts = require('./src/scripts/getAllContacts');
-const countContacts = require('./src/scripts/countContacts');
-const removeAllContacts = require('./src/scripts/removeAllContacts');
-const removeLastContact = require('./src/scripts/removeLastContact');
+import generateContacts from './src/scripts/generateContacts';
+import addOneContact from './src/scripts/addOneContact';
+import getAllContacts from './src/scripts/getAllContacts';
+import countContacts from './src/scripts/countContacts';
+import removeAllContacts from './src/scripts/removeAllContacts';
+import removeLastContact from './src/scripts/removeLastContact';
 
 generateContacts(5); 
 addOneContact(); 
