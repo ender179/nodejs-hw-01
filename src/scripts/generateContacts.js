@@ -1,15 +1,14 @@
-import { writeContacts } from '../utils/writeContacts';  
-import { readContacts } from '../utils/readContacts';  
+import writeContacts from '../utils/writeContacts';  
+import readContacts from '../utils/readContacts';  
 import createFakeContact from '../utils/createFakeContact';  
 
-const generateContacts = (num) => {  
-  const contacts = readContacts();  
+async function generateContacts(count) {  
+    const contacts = await readContacts();  
+    for (let i = 0; i < count; i++) {  
+        contacts.push(createFakeContact());  
+    }  
+    await writeContacts(contacts);  
+}  
 
-  for (let i = 0; i < num; i++) {  
-    contacts.push(createFakeContact());  
-  }  
-
-  writeContacts(contacts);  
-};  
-
-export default generateContacts;
+const count = process.argv[2] || 5; 
+generateContacts(Number(count));

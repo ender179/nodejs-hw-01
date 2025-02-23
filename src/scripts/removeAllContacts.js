@@ -1,8 +1,7 @@
-import { writeContacts } from '../utils/writeContacts';  
+import writeContacts from '../utils/writeContacts';  
 
-const removeAllContacts = () => {  
-  writeContacts([]);  
-  console.log('Всі контакти видалено.');  
-};  
+async function removeAllContacts() {  
+    await writeContacts([]);  
+}  
 
-export default removeAllContacts;
+removeAllContacts();

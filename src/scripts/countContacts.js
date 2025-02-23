@@ -1,8 +1,8 @@
-import { readContacts } from '../utils/readContacts';  
+import readContacts from '../utils/readContacts';  
 
-const countContacts = () => {  
-  const contacts = readContacts();  
-  console.log(`Кількість контактів: ${contacts.length}`); // Виводимо кількість контактів  
-};  
+async function countContacts() {  
+    const contacts = await readContacts();  
+    console.log(contacts.length);  
+}  
 
-export default countContacts;
+countContacts();

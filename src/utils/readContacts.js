@@ -1,9 +1,14 @@
-import fs from 'fs';  
-import path from 'path';  
+import { promises as fs } from 'fs';  
+import { PATH_DB } from '../constants/contacts';  
 
-const readContacts = () => {  
-  const data = fs.readFileSync(path.join(__dirname, '../db/db.json'));  
-  return JSON.parse(data);  
-};  
+async function readContacts() {  
+    try {  
+        const data = await fs.readFile(PATH_DB, 'utf-8');  
+        return JSON.parse(data);  
+    } catch (error) {  
+        console.error("Error reading contacts:", error);  
+        return [];  
+    }  
+}  
 
 export default readContacts;

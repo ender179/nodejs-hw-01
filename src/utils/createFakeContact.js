@@ -1,9 +1,13 @@
-const createFakeContact = () => {  
-  const names = ['John', 'Jane', 'Alice', 'Bob'];  
-  return {  
-    name: names[Math.floor(Math.random() * names.length)],  
-    phone: `${Math.floor(Math.random() * 1000000000)}`,  
-  };  
-};  
+import { faker } from '@faker-js/faker';  
+
+function createFakeContact() {  
+    return {  
+        id: faker.string.uuid(),  
+        name: faker.person.fullName(),  
+        phone: faker.phone.number(),  
+        email: faker.internet.email(),  
+        job: faker.person.jobTitle(),  
+    };  
+}  
 
 export default createFakeContact;

@@ -1,8 +1,12 @@
-import fs from 'fs';  
-import path from 'path';  
+import { promises as fs } from 'fs';  
+import { PATH_DB } from '../constants/contacts';  
 
-const writeContacts = (contacts) => {  
-  fs.writeFileSync(path.join(__dirname, '../db/db.json'), JSON.stringify(contacts, null, 2));  
-};  
+async function writeContacts(contacts) {  
+    try {  
+        await fs.writeFile(PATH_DB, JSON.stringify(contacts, null, 2));  
+    } catch (error) {  
+        console.error("Error writing contacts:", error);  
+    }  
+}  
 
 export default writeContacts;
