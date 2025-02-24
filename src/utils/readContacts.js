@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+import { promises as fs } from 'fs';
 
 async function readContacts() {
     try {
@@ -10,4 +10,4 @@ async function readContacts() {
     }
 }
 
-module.exports = readContacts;
+export default readContacts;

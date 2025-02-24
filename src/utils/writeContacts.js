@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+import { promises as fs } from 'fs';
 
 async function writeContacts(contacts) {
     try {
@@ -8,4 +8,4 @@ async function writeContacts(contacts) {
     }
 }
 
-module.exports = writeContacts;
+export default writeContacts;
