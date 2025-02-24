@@ -1,14 +1,13 @@
-import writeContacts from '../utils/writeContacts';  
-import readContacts from '../utils/readContacts';  
-import createFakeContact from '../utils/createFakeContact';  
+const readContacts = require('../utils/readContacts');
+const writeContacts = require('../utils/writeContacts');
+const createFakeContact = require('../utils/createFakeContact');
 
-async function generateContacts(count) {  
-    const contacts = await readContacts();  
-    for (let i = 0; i < count; i++) {  
-        contacts.push(createFakeContact());  
-    }  
-    await writeContacts(contacts);  
-}  
+async function generateContacts(num) {
+    const contacts = await readContacts();
+    for (let i = 0; i < num; i++) {
+        contacts.push(createFakeContact());
+    }
+    await writeContacts(contacts);
+}
 
-const count = process.argv[2] || 5; 
-generateContacts(Number(count));
+generateContacts(5); 

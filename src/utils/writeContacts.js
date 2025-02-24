@@ -1,12 +1,11 @@
-import { promises as fs } from 'fs';  
-import { PATH_DB } from '../constants/contacts';  
+const fs = require('fs').promises;
 
-async function writeContacts(contacts) {  
-    try {  
-        await fs.writeFile(PATH_DB, JSON.stringify(contacts, null, 2));  
-    } catch (error) {  
-        console.error("Error writing contacts:", error);  
-    }  
-}  
+async function writeContacts(contacts) {
+    try {
+        await fs.writeFile(PATH_DB, JSON.stringify(contacts, null, 2), 'utf8');
+    } catch (error) {
+        console.error('Error writing contacts:', error);
+    }
+}
 
-export default writeContacts;
+module.exports = writeContacts;
